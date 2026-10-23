@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://www.patreon.com/chortdev/"><img alt="Patreon" src="https://img.shields.io/badge/Patreon-chortdev-FF424D?style=for-the-badge&amp;logo=patreon&amp;logoColor=white"></a>
-  <a href="https://boosty.to/chortdev"><img alt="Boosty" src="https://img.shields.io/badge/Boosty-chortdev-F05A2D?style=for-the-badge"></a>
-  <a href="#usdt-donation-address"><img alt="USDT wallet: 0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1 (click for copyable address)" src="https://img.shields.io/badge/USDT-0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1-26A17B?style=for-the-badge"></a>
+  <a href="https://boosty.to/chortdev"><img alt="Boosty" src="https://img.shields.io/badge/Boosty-chortdev-F05A2D?style=for-the-badge&amp;logo=boosty&amp;logoColor=white"></a>
+  <a href="#usdt-donation-address"><img alt="USDT wallet: 0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1 (click for copyable address)" src="https://img.shields.io/badge/USDT-0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1-26A17B?style=for-the-badge&amp;logo=tether&amp;logoColor=white"></a>
   <a href="https://discord.com/channels/747967102895390741/1546924467832225863"><img alt="Discord flat2VR" src="https://img.shields.io/badge/Discord-flat2VR-5865F2?style=for-the-badge&amp;logo=discord&amp;logoColor=white"></a>
   <a href="https://www.youtube.com/@chortdev"><img alt="YouTube" src="https://img.shields.io/badge/YouTube-%40chortdev-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white"></a>
 </p>
@@ -109,7 +109,13 @@ developer-only rows are not compiled into the release menu.
 
 ## Support the project
 
-Donation and community badges are at the top of this README.
+<p align="center">
+  <a href="https://www.patreon.com/chortdev/"><img alt="Patreon" src="https://img.shields.io/badge/Patreon-chortdev-FF424D?style=for-the-badge&amp;logo=patreon&amp;logoColor=white"></a>
+  <a href="https://boosty.to/chortdev"><img alt="Boosty" src="https://img.shields.io/badge/Boosty-chortdev-F05A2D?style=for-the-badge&amp;logo=boosty&amp;logoColor=white"></a>
+  <a href="#usdt-donation-address"><img alt="USDT wallet: 0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1 (click for copyable address)" src="https://img.shields.io/badge/USDT-0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1-26A17B?style=for-the-badge&amp;logo=tether&amp;logoColor=white"></a>
+  <a href="https://discord.com/channels/747967102895390741/1546924467832225863"><img alt="Discord flat2VR" src="https://img.shields.io/badge/Discord-flat2VR-5865F2?style=for-the-badge&amp;logo=discord&amp;logoColor=white"></a>
+  <a href="https://www.youtube.com/@chortdev"><img alt="YouTube" src="https://img.shields.io/badge/YouTube-%40chortdev-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white"></a>
+</p>
 
 ### USDT donation address
 
@@ -121,11 +127,6 @@ The USDT badge at the top jumps here. Use the copy icon on the code block:
 
 ## Thanks
 
-Thank you to the flat2VR community for the shared VR knowledge and testing
-feedback, to everyone who ran development builds and reported logs, to the
-Dead Space modding community, and to the people maintaining the open VR,
-graphics and streaming tools this project depends on.
-
-Special thanks to the testers who spent their own time checking calibration,
-reload, inventory and comfort behavior in a headset. Your reports are what make
-the release build better.
+Thanks to the flat2VR community, everyone who reported bugs with logs, the
+Dead Space modding community, and the maintainers of the open VR, graphics and
+streaming tools this project builds on.
