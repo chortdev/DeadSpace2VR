@@ -109,17 +109,15 @@ developer-only rows are not compiled into the release menu.
 
 ## Support the project
 
-<p align="center">
-  <a href="https://www.patreon.com/chortdev/"><img alt="Patreon" src="https://img.shields.io/badge/Patreon-chortdev-FF424D?style=for-the-badge&amp;logo=patreon&amp;logoColor=white"></a>
-  <a href="https://boosty.to/chortdev"><img alt="Boosty" src="https://img.shields.io/badge/Boosty-chortdev-F05A2D?style=for-the-badge&amp;logo=boosty&amp;logoColor=white"></a>
-  <a href="#usdt-donation-address"><img alt="USDT wallet: 0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1 (click for copyable address)" src="https://img.shields.io/badge/USDT-0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1-26A17B?style=for-the-badge&amp;logo=tether&amp;logoColor=white"></a>
-  <a href="https://discord.com/channels/747967102895390741/1546924467832225863"><img alt="Discord flat2VR" src="https://img.shields.io/badge/Discord-flat2VR-5865F2?style=for-the-badge&amp;logo=discord&amp;logoColor=white"></a>
-  <a href="https://www.youtube.com/@chortdev"><img alt="YouTube" src="https://img.shields.io/badge/YouTube-%40chortdev-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white"></a>
-</p>
+- **USDT:** `0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1`
+- **Patreon:** https://www.patreon.com/chortdev/
+- **Boosty:** https://boosty.to/chortdev
+- **Discord (flat2VR):** https://discord.com/channels/747967102895390741/1546924467832225863
+- **YouTube:** https://www.youtube.com/@chortdev
 
 ### USDT donation address
 
-The USDT badge at the top jumps here. Use the copy icon on the code block:
+Use the copy icon on the code block:
 
 ```text
 0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1
