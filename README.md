@@ -74,6 +74,54 @@ install.bat "C:\path\to\Dead Space 2" -Uninstall
 Keep the generated `ds2stereo.ini`, `ds2twohand.ini`, `ds2vr-settings.ini` and
 calibration files if you want to preserve your setup across an update.
 
+## Optional: MarkerPatch
+
+[MarkerPatch](https://github.com/Wemino/MarkerPatch) by Wemino is a fix pack
+for the PC version of Dead Space 2: physics and weapon fire rate at high frame
+rates, stutter and loading fixes, and more. It works together with DS2PCVR
+(MarkerPatch loads as `dinput8.dll`, DS2PCVR as `d3d9.dll`), but six of its
+options conflict with VR and must be turned off:
+
+| MarkerPatch option | Problem when left on |
+|---|---|
+| `FixSuitChangeTiming` | Store, save station and bench VR panels and the VR locator are disabled |
+| `FixHazardSuitIcon` | The gun laser colour setting stops working |
+| `RawMouseInput` | Can take over camera and aim after a menu click with the controller laser |
+| `AutoHideMouseCursor` | Hides the menu cursor while you point with a controller |
+| `ImprovedAntiAliasingMode` | DS2PCVR has its own anti-aliasing (**VR Settings → Comfort → Display and anti-aliasing**); MarkerPatch's SSAA changes the render size the VR image relies on |
+| `AchievementSupport` | The overlay is not visible in the headset and the HOME key takes over input |
+
+Setup:
+
+1. Install DS2PCVR (above).
+2. Download `MarkerPatch.zip` from the
+   [MarkerPatch releases](https://github.com/Wemino/MarkerPatch/releases) and
+   extract it into the game folder, next to `deadspace2.exe`.
+3. Download [`MarkerPatch-VR.ps1`](MarkerPatch-VR.ps1) from this repository
+   and run it from PowerShell:
+
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File .\MarkerPatch-VR.ps1 "C:\path\to\Dead Space 2"
+   ```
+
+   It turns the six options off in `MarkerPatch.ini` and sets the DXVK frame
+   cap in `dxvk.conf`. The first run keeps the originals as
+   `MarkerPatch.ini.before-ds2pcvr` and `dxvk.conf.before-ds2pcvr`; running it
+   again is safe.
+
+The `dxvk.conf` settings (`d3d9.maxFrameRate = 120`,
+`d3d9.presentInterval = 0`) apply only when the game runs through DXVK (Linux,
+Proton, Steam Deck, or DXVK on Windows); native Direct3D 9 on Windows ignores
+the file. They replace DXVK's built-in Dead Space 2 limits (60 FPS and forced
+vsync), which exist because of the high-frame-rate physics problems that
+MarkerPatch fixes.
+
+To remove MarkerPatch, delete `dinput8.dll`, `MarkerPatch.ini` and the
+`achievements` folder from the game folder, and rename
+`dxvk.conf.before-ds2pcvr` back to `dxvk.conf`.
+
+Tested with MarkerPatch 3.0.6 on the Steam version.
+
 ## Logs and bug reports
 
 The installer creates a per-install log directory:
