@@ -40,9 +40,8 @@ steps that produced them.
   comfort, display, anti-aliasing and calibration.
 - A session log file for support and bug reports.
 
-The release build does not expose developer-only menu entries. Calibration and
-advanced controls are available under **VR Settings → Calibration and
-controls**.
+The release build omits the Developer settings page and its developer-only
+calibration menu. The public **Calibrate game** flow remains available.
 
 ## Requirements
 
@@ -54,11 +53,13 @@ controls**.
 - An OpenVR-compatible runtime and headset (for example SteamVR, or a Quest
   streaming setup that presents OpenVR controllers).
 - Two tracked motion controllers.
+- A Vulkan-capable GPU and driver. The release ships the 32-bit DXVK 2.7.1
+  renderer and renders through it by default.
 
 | Your game | Download | `deadspace2.exe` SHA-256 |
 |---|---|---|
-| Steam | `DS2PCVR-<version>-steam.zip` | `f72f15b8a6aced7970569e66e4eaabf322a5fdd7b58e9030fdea268d770d1d7f` |
-| Non-Steam retail | `DS2PCVR-<version>-pinned.zip` | `e13195d0cdd928e9bbb537b049b4aee0bb63e8ac1915af5bf166f745aea985ec` |
+| Steam | [DS2PCVR-0.1.1-steam.zip](DS2PCVR-0.1.1-steam.zip) | `f72f15b8a6aced7970569e66e4eaabf322a5fdd7b58e9030fdea268d770d1d7f` |
+| Non-Steam retail | [DS2PCVR-0.1.1-pinned.zip](DS2PCVR-0.1.1-pinned.zip) | `e13195d0cdd928e9bbb537b049b4aee0bb63e8ac1915af5bf166f745aea985ec` |
 
 Not sure which you have? In PowerShell:
 
@@ -93,6 +94,35 @@ and calibration stay in the game folder (`ds2stereo.ini`, `ds2vr-settings.ini`,
 `ds2calibration.ini`, `ds2twohand.ini`, `ds2scene.ini`, `ds2hud.ini`). The
 installer keeps them and only refreshes the folder paths in `ds2stereo.ini`.
 
+Uninstall also removes the bundled renderer and restores a
+`dxvk_d3d9.dll` that was already in the folder before installation.
+
+## Renderer
+
+The installer places `dxvk_d3d9.dll` (DXVK 2.7.1, 32-bit) next to
+`deadspace2.exe` and `ds2stereo.ini` defaults to:
+
+```ini
+real_d3d9=dxvk_d3d9.dll
+vr_transport=dxvk
+```
+
+The release also installs `dxvk.conf` with `d3d9.maxFrameRate = 120` and
+`d3d9.presentInterval = 0` (120 FPS cap, vsync disabled). An existing
+`dxvk.conf` is backed up during installation and restored on uninstall.
+
+DXVK is the tested launch renderer and the direct Vulkan eye transport avoids
+the CPU readback path. If the game does not start on your GPU or you prefer the
+system renderer, close the game and change those two lines to:
+
+```ini
+real_d3d9=
+vr_transport=cpu
+```
+
+Your graphics driver must support Vulkan. DXVK writes its own `dxvk.log` in the
+game folder when it hits a driver problem.
+
 ## MarkerPatch (required for Windows 11)
 
 [MarkerPatch](https://github.com/Wemino/MarkerPatch) by Wemino is required for
@@ -112,8 +142,8 @@ Setup:
    powershell -ExecutionPolicy Bypass -File .\MarkerPatch-VR.ps1 "C:\path\to\Dead Space 2"
    ```
 
-   It turns off the MarkerPatch options that conflict with VR and sets the DXVK
-   frame cap. The first run keeps the originals as `*.before-ds2pcvr`.
+   It turns off the MarkerPatch options that conflict with VR. The release
+   already ships the DXVK frame-cap settings in `dxvk.conf`.
 
 ## Logs and bug reports
 

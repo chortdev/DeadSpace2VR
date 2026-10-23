@@ -1,11 +1,11 @@
 <#
 DS2PCVR + MarkerPatch: turns off the MarkerPatch options that conflict with the
-VR mod and sets the DXVK frame cap. Run it after installing both.
+VR mod. Run it after installing both.
 
   powershell -ExecutionPolicy Bypass -File .\MarkerPatch-VR.ps1 "C:\path\to\Dead Space 2"
 
-The first run keeps the originals as MarkerPatch.ini.before-ds2pcvr and
-dxvk.conf.before-ds2pcvr. Running it again is safe.
+The first run keeps the original as MarkerPatch.ini.before-ds2pcvr. Running it
+again is safe.
 #>
 param([Parameter(Mandatory = $true)][string]$GameDir)
 $ErrorActionPreference = 'Stop'
@@ -27,12 +27,6 @@ $off = @(
   @('Input',    'AutoHideMouseCursor',      '0'),  # menu cursor while pointing
   @('Graphics', 'ImprovedAntiAliasingMode', '0'),  # DS2PCVR has its own AA
   @('General',  'AchievementSupport',       '0')   # overlay not visible in VR, HOME grabs input
-)
-# DXVK only (Linux/Proton/Steam Deck or DXVK on Windows). Overrides DXVK's
-# built-in Dead Space 2 profile (60 FPS cap, forced vsync).
-$dxvkKeys = @(
-  @('d3d9.maxFrameRate',    '120'),
-  @('d3d9.presentInterval', '0')
 )
 
 # First run only. A file that did not exist gets an empty backup, so a later
@@ -64,18 +58,5 @@ foreach ($o in $off) {
 }
 [IO.File]::WriteAllText($ini, $text, (New-Object Text.UTF8Encoding($bom)))
 
-# dxvk.conf: set our keys, keep every other line.
-$conf = Join-Path $GameDir 'dxvk.conf'
-Backup $conf
-$lines = @()
-if (Test-Path -LiteralPath $conf) { $lines = @(Get-Content -LiteralPath $conf) }
-foreach ($k in $dxvkKeys) {
-  $key, $value = $k
-  $pattern = '^\s*' + [regex]::Escape($key) + '\s*='
-  if ($lines -match $pattern) { $lines = $lines -replace ($pattern + '.*$'), "$key = $value" }
-  else { $lines += "$key = $value" }
-  Write-Host "dxvk.conf        $key = $value"
-}
-[IO.File]::WriteAllLines($conf, [string[]]$lines, (New-Object Text.ASCIIEncoding))
 
-Write-Host "Done. Originals kept as *.before-ds2pcvr in $GameDir"
+Write-Host "Done. Original MarkerPatch.ini kept as MarkerPatch.ini.before-ds2pcvr in $GameDir"
