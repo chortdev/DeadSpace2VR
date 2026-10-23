@@ -19,7 +19,7 @@ if (-not (Test-Path -LiteralPath $ini)) {
   throw "MarkerPatch.ini not found. Install MarkerPatch first: https://github.com/Wemino/MarkerPatch/releases"
 }
 
-# Section, key, value. All six conflict with DS2PCVR (see README).
+# Section, key, value. All six conflict with DS2PCVR.
 $off = @(
   @('Fixes',    'FixSuitChangeTiming',      '0'),  # VR store/save/bench panels and locator
   @('Fixes',    'FixHazardSuitIcon',        '0'),  # gun laser colour
