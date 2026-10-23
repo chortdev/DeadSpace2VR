@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://www.patreon.com/chortdev/"><img alt="Patreon" src="https://img.shields.io/badge/Patreon-chortdev-FF424D?style=for-the-badge&amp;logo=patreon&amp;logoColor=white"></a>
   <a href="https://boosty.to/chortdev"><img alt="Boosty" src="https://img.shields.io/badge/Boosty-chortdev-F05A2D?style=for-the-badge&amp;logo=boosty&amp;logoColor=white"></a>
-  <a href="https://etherscan.io/address/0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1"><img alt="USDT wallet: 0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1" src="https://img.shields.io/badge/USDT-0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1-26A17B?style=for-the-badge&amp;logo=tether&amp;logoColor=white"></a>
+  <a href="https://etherscan.io/address/0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1"><img alt="USDT ERC-20 wallet: 0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1" src="https://img.shields.io/badge/USDT-0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1-26A17B?style=for-the-badge&amp;logo=tether&amp;logoColor=white"></a>
   <a href="https://discord.com/channels/747967102895390741/1546924467832225863"><img alt="Discord flat2VR" src="https://img.shields.io/badge/Discord-flat2VR-5865F2?style=for-the-badge&amp;logo=discord&amp;logoColor=white"></a>
   <a href="https://www.youtube.com/@chortdev"><img alt="YouTube" src="https://img.shields.io/badge/YouTube-%40chortdev-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white"></a>
 </p>
@@ -47,32 +47,51 @@ controls**.
 ## Requirements
 
 - Windows 10 or Windows 11, 64-bit.
-- The original 32-bit PC release of Dead Space 2. Both the pinned retail build
-  and the current Steam build are supported; the installer checks the
-  executable SHA-256 before changing anything.
+- The original 32-bit PC release of Dead Space 2, in one of the two supported
+  versions below. Each has its own download; the installer checks the
+  executable before changing anything and tells you if you picked the wrong
+  one.
 - An OpenVR-compatible runtime and headset (for example SteamVR, or a Quest
   streaming setup that presents OpenVR controllers).
 - Two tracked motion controllers.
 
+| Your game | Download | `deadspace2.exe` SHA-256 |
+|---|---|---|
+| Steam | `DS2PCVR-<version>-steam.zip` | `f72f15b8a6aced7970569e66e4eaabf322a5fdd7b58e9030fdea268d770d1d7f` |
+| Non-Steam retail | `DS2PCVR-<version>-pinned.zip` | `e13195d0cdd928e9bbb537b049b4aee0bb63e8ac1915af5bf166f745aea985ec` |
+
+Not sure which you have? In PowerShell:
+
+```powershell
+Get-FileHash "C:\path\to\Dead Space 2\deadspace2.exe"
+```
+
+Other versions of `deadspace2.exe` are not supported.
+
 ## Installation
 
 1. Close Dead Space 2 and SteamVR.
-2. Back up the game directory.
-3. Extract the release ZIP into the game directory, next to `deadspace2.exe`.
-4. Either run `install.bat "C:\path\to\Dead Space 2"` (or `install.ps1` from
-   PowerShell), or copy the files manually into the game directory.
+2. Back up the game folder.
+3. Extract the ZIP anywhere outside the game folder, for example to
+   `Downloads`. It creates a `DS2PCVR-<version>` folder.
+4. In that folder, double-click `install.bat` and paste the game folder path
+   when asked (the folder that contains `deadspace2.exe`). From a command
+   prompt you can also run `install.bat "C:\path\to\Dead Space 2"`.
 5. Start SteamVR, then start the game.
 6. Open the game's **Settings → VR Settings** page and select your play
-   position, hand mode and turning preference.
+   position and turning preference; hand mode is on the **Hand features**
+   page.
 
-To remove an automated installation, run:
+To remove the mod, run:
 
 ```bat
 install.bat "C:\path\to\Dead Space 2" -Uninstall
 ```
 
-Keep the generated `ds2stereo.ini`, `ds2twohand.ini`, `ds2vr-settings.ini` and
-calibration files if you want to preserve your setup across an update.
+To update, uninstall the old version, then install the new one. Your settings
+and calibration stay in the game folder (`ds2stereo.ini`, `ds2vr-settings.ini`,
+`ds2calibration.ini`, `ds2twohand.ini`, `ds2scene.ini`, `ds2hud.ini`). The
+installer keeps them and only refreshes the folder paths in `ds2stereo.ini`.
 
 ## MarkerPatch (required for Windows 11)
 
@@ -98,14 +117,13 @@ Setup:
 
 ## Logs and bug reports
 
-The installer creates a per-install log directory:
+The installer creates a log folder:
 
 ```text
-<game directory>\ds2pcvr-logs\<install id>\ds2stereo.log
+<game folder>\ds2pcvr-logs\<install id>\ds2stereo.log
 ```
 
-For a manual installation, the log is written to `out_dir` from
-`ds2stereo.ini`, or next to `d3d9.dll` when `out_dir` is empty. Each launch
+The log path is written as `out_dir` in `ds2stereo.ini`. Each launch
 starts a fresh `ds2stereo.log`; previous sessions are kept as
 `ds2stereo-YYYYMMDD-HHMMSS.log`. The `log_sessions` key controls how many
 sessions are retained (default 10).
@@ -123,15 +141,16 @@ long stretched triangles around enemies in both eyes.
 
 ## Release files and updates
 
-Release archives contain the runtime files, the installer helpers, the
-documentation and a SHA-256 manifest. They do not contain source code, tests or
+Release archives contain the runtime files, default calibration, the installer
+helpers, the documentation, third-party notices and a SHA-256 manifest that
+the installer verifies. They do not contain source code, tests or
 developer packages; the installer scripts are the only command-line helpers.
 Release DLLs are stripped, and the developer settings entry and its
 developer-only rows are not compiled into the release menu.
 
 ## Support the project
 
-- **USDT:** [`0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1`](https://etherscan.io/address/0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1)
+- **USDT (ERC-20, Ethereum network only):** [`0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1`](https://etherscan.io/address/0xB1C5A0da905a198026c813d1FE7C93A08DcEb2e1)
 - **Patreon:** https://www.patreon.com/chortdev/
 - **Boosty:** https://boosty.to/chortdev
 - **Discord (flat2VR):** https://discord.com/channels/747967102895390741/1546924467832225863
