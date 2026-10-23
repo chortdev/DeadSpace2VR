@@ -1,5 +1,3 @@
-# Dead Space 2 PC VR
-
 <p align="center">
   <a href="https://www.patreon.com/chortdev/"><img alt="Patreon" src="https://img.shields.io/badge/Patreon-chortdev-FF424D?style=for-the-badge&amp;logo=patreon&amp;logoColor=white"></a>
   <a href="https://boosty.to/chortdev"><img alt="Boosty" src="https://img.shields.io/badge/Boosty-chortdev-F05A2D?style=for-the-badge"></a>
@@ -7,6 +5,8 @@
   <a href="https://discord.com/channels/747967102895390741/1546924467832225863"><img alt="Discord flat2VR" src="https://img.shields.io/badge/Discord-flat2VR-5865F2?style=for-the-badge&amp;logo=discord&amp;logoColor=white"></a>
   <a href="https://www.youtube.com/@chortdev"><img alt="YouTube" src="https://img.shields.io/badge/YouTube-%40chortdev-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white"></a>
 </p>
+
+# Dead Space 2 PC VR
 
 A native VR mod for the original 32-bit PC release of **Dead Space 2**. The mod
 loads as a `d3d9.dll` proxy next to `deadspace2.exe`; it does not replace the
