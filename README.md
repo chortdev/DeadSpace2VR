@@ -46,10 +46,9 @@ calibration menu. The public **Calibrate game** flow remains available.
 ## Requirements
 
 - Windows 10 or Windows 11, 64-bit.
-- The original 32-bit PC release of Dead Space 2, in one of the two supported
-  versions below. Each has its own download; the installer checks the
-  executable before changing anything and tells you if you picked the wrong
-  one.
+- The current release supports the original 32-bit Steam PC version of
+  Dead Space 2. The installer verifies the executable before changing
+  anything and rejects unsupported builds.
 - An OpenVR-compatible runtime and headset (for example SteamVR, or a Quest
   streaming setup that presents OpenVR controllers).
 - Two tracked motion controllers.
@@ -59,7 +58,6 @@ calibration menu. The public **Calibrate game** flow remains available.
 | Your game | Download | `deadspace2.exe` SHA-256 |
 |---|---|---|
 | Steam | [DS2PCVR-0.1.1-steam.zip](DS2PCVR-0.1.1-steam.zip) | `f72f15b8a6aced7970569e66e4eaabf322a5fdd7b58e9030fdea268d770d1d7f` |
-| Non-Steam retail | [DS2PCVR-0.1.1-pinned.zip](DS2PCVR-0.1.1-pinned.zip) | `e13195d0cdd928e9bbb537b049b4aee0bb63e8ac1915af5bf166f745aea985ec` |
 
 Not sure which you have? In PowerShell:
 
