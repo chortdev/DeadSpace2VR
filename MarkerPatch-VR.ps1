@@ -2,6 +2,7 @@
 DS2PCVR + MarkerPatch: turns off the MarkerPatch options that conflict with the
 VR mod. Run it after installing both.
 
+  cd "C:\path\to\Dead Space 2"
   powershell -ExecutionPolicy Bypass -File .\MarkerPatch-VR.ps1 "C:\path\to\Dead Space 2"
 
 The first run keeps the original as MarkerPatch.ini.before-ds2pcvr. Running it

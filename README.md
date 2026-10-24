@@ -57,7 +57,7 @@ calibration menu. The public **Calibrate game** flow remains available.
 
 | Your game | Download | `deadspace2.exe` SHA-256 |
 |---|---|---|
-| Steam | [DS2PCVR-0.1.1-steam.zip](DS2PCVR-0.1.1-steam.zip) | `f72f15b8a6aced7970569e66e4eaabf322a5fdd7b58e9030fdea268d770d1d7f` |
+| Steam | [DS2PCVR-0.1.2-steam.zip](DS2PCVR-0.1.2-steam.zip) | `f72f15b8a6aced7970569e66e4eaabf322a5fdd7b58e9030fdea268d770d1d7f` |
 
 Not sure which you have? In PowerShell:
 
@@ -121,6 +121,11 @@ vr_transport=cpu
 Your graphics driver must support Vulkan. DXVK writes its own `dxvk.log` in the
 game folder when it hits a driver problem.
 
+Since 0.1.2 the spot-light shadow maps are drawn once per frame and shared by
+both eyes. If the two eyes ever show different shadows, set `shadow_once=0` in
+`ds2stereo.ini` and report it. For a performance report, set `stereo_perf=1`
+before the run and attach the log.
+
 ## MarkerPatch (required for Windows 11)
 
 [MarkerPatch](https://github.com/Wemino/MarkerPatch) by Wemino is required for
@@ -134,9 +139,11 @@ Setup:
    [MarkerPatch releases](https://github.com/Wemino/MarkerPatch/releases) and
    extract it into the game folder, next to `deadspace2.exe`.
 3. Download [`MarkerPatch-VR.ps1`](MarkerPatch-VR.ps1) from this repository
-   and run it from PowerShell:
+   into the game folder. Open PowerShell as administrator (it starts in
+   `C:\Windows\system32`), go to the game folder, then run the script:
 
    ```powershell
+   cd "C:\path\to\Dead Space 2"
    powershell -ExecutionPolicy Bypass -File .\MarkerPatch-VR.ps1 "C:\path\to\Dead Space 2"
    ```
 
