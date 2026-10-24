@@ -24,13 +24,25 @@ and exercised in the current build, but VR behavior can still differ by scene,
 headset, runtime and controller. Please report problems with a log and the
 steps that produced them.
 
+### What's new in 0.1.3
+
+- **Zero-G fix:** pulling both triggers now answers every take-off or landing
+  the game waits for, including while the first zero-G tutorial tip ("Pull
+  both triggers") is on screen. Before, that tip could leave both triggers
+  doing nothing. If take-off still fails for you, please send
+  `ds2stereo.log`: it now records each both-trigger press in zero-G areas.
+- **Simpler install:** copy the files into the game folder; no scripts needed.
+- A full controller reference ([Controls](#controls-quest-touch)).
+- From 0.1.2: shadow maps are drawn once for both eyes and the hand filter is
+  cheaper, which raises the frame rate on CPU-limited PCs.
+
 ## Features
 
 - Same-frame stereoscopic VR through OpenVR/SteamVR, with SBS and flat output
   modes for desktop testing.
 - Head tracking with seated/standing play, snap or smooth turning, movement
   vignette, height calibration and physical room-scale steps.
-- Motion-controller hands, tracked weapon model, two-hand weapon grip and
+- Motion-controller hands ([controls](#controls-quest-touch)), tracked weapon model, two-hand weapon grip and
   hand/gun world collision.
 - Physical manual reload, telekinesis, stasis, melee, hand HUD and the oxygen
   meter.
@@ -47,8 +59,8 @@ calibration menu. The public **Calibrate game** flow remains available.
 
 - Windows 10 or Windows 11, 64-bit.
 - The current release supports the original 32-bit Steam PC version of
-  Dead Space 2. The installer verifies the executable before changing
-  anything and rejects unsupported builds.
+  Dead Space 2. The mod checks the executable at startup and stays off on
+  any other build.
 - An OpenVR-compatible runtime and headset (for example SteamVR, or a Quest
   streaming setup that presents OpenVR controllers).
 - Two tracked motion controllers.
@@ -57,7 +69,7 @@ calibration menu. The public **Calibrate game** flow remains available.
 
 | Your game | Download | `deadspace2.exe` SHA-256 |
 |---|---|---|
-| Steam | [DS2PCVR-0.1.2-steam.zip](DS2PCVR-0.1.2-steam.zip) | `f72f15b8a6aced7970569e66e4eaabf322a5fdd7b58e9030fdea268d770d1d7f` |
+| Steam | [DS2PCVR-0.1.3-steam.zip](DS2PCVR-0.1.3-steam.zip) | `f72f15b8a6aced7970569e66e4eaabf322a5fdd7b58e9030fdea268d770d1d7f` |
 
 Not sure which you have? In PowerShell:
 
@@ -69,45 +81,114 @@ Other versions of `deadspace2.exe` are not supported.
 
 ## Installation
 
-1. Close Dead Space 2 and SteamVR.
-2. Back up the game folder.
-3. Extract the ZIP anywhere outside the game folder, for example to
-   `Downloads`. It creates a `DS2PCVR-<version>` folder.
-4. In that folder, double-click `install.bat` and paste the game folder path
-   when asked (the folder that contains `deadspace2.exe`). From a command
-   prompt you can also run `install.bat "C:\path\to\Dead Space 2"`.
-5. Start SteamVR, then start the game.
-6. Open the game's **Settings → VR Settings** page and select your play
-   position and turning preference; hand mode is on the **Hand features**
-   page.
+No scripts are needed: copy the files into the game folder.
 
-To remove the mod, run:
+1. Close Dead Space 2 and SteamVR.
+2. Find the game folder: in Steam, right-click **Dead Space 2** →
+   **Manage** → **Browse local files**. It is the folder that contains
+   `deadspace2.exe`.
+3. Extract the ZIP anywhere, for example to `Downloads`, and open the
+   `DS2PCVR-<version>` folder inside it.
+4. Select all files in that folder (**Ctrl+A**), copy them (**Ctrl+C**) and
+   paste them into the game folder (**Ctrl+V**). If Windows asks about a
+   `dxvk.conf` that is already there, replace it.
+5. Start your headset link (Virtual Desktop, Quest Link/Air Link or ALVR) and
+   SteamVR, then start Dead Space 2 from Steam.
+6. In the game, open **Settings → VR Settings** and choose your play position
+   (standing or seated) and turning. Left-handed players: **VR Settings →
+   Hand features → Hand mode**.
+
+The game loads the mod by itself from `d3d9.dll` in the game folder. The mod
+checks `deadspace2.exe` at startup and stays off on an unsupported version.
+`install.bat`, `install.ps1`, `profile.json`, `SHA256SUMS`, `README.md`,
+`THIRD-PARTY-NOTICES.txt` and `vr-settings-native-abi.json` are not used by
+the game; copying them along does no harm.
+
+### Updating
+
+Copy the new files over the old ones the same way. When Windows says files
+already exist, choose **Let me decide for each file** and keep your copies of
+these settings files (skip them):
+
+- `ds2stereo.ini`
+- `ds2calibration.ini`
+- `ds2twohand.ini`
+- `ds2scene.ini`
+
+Replace everything else. Your VR Settings choices (`ds2vr-settings.ini`,
+`ds2hud.ini`) are not in the ZIP, so they always stay.
+
+If you installed an earlier version with `install.bat`, remove it first with
+the old folder's `install.bat "C:\path\to\Dead Space 2" -Uninstall`, or
+just copy over it and from then on remove the mod by hand (below).
+
+### Removing
+
+Delete `d3d9.dll` from the game folder; the game then starts without VR. To
+remove everything, also delete `dxvk_d3d9.dll`, `dxvk.conf`,
+`openvr_api.dll`, `ds2hands.exe` and the `ds2*.ini`, `ds2*.bin` and
+`ds2stereo*.log` files.
+
+### Installer (optional)
+
+`install.bat` does the same copy with extra checks: it verifies
+`deadspace2.exe`, backs up any file it replaces, keeps logs in a
+`ds2pcvr-logs` folder and can undo the install. Run it from the extracted
+folder (it uses PowerShell internally):
 
 ```bat
+install.bat "C:\path\to\Dead Space 2"
 install.bat "C:\path\to\Dead Space 2" -Uninstall
 ```
 
-To update, uninstall the old version, then install the new one. Your settings
-and calibration stay in the game folder (`ds2stereo.ini`, `ds2vr-settings.ini`,
-`ds2calibration.ini`, `ds2twohand.ini`, `ds2scene.ini`, `ds2hud.ini`). The
-installer keeps them and only refreshes the folder paths in `ds2stereo.ini`.
+## Controls (Quest Touch)
 
-Uninstall also removes the bundled renderer and restores a
-`dxvk_d3d9.dll` that was already in the folder before installation.
+Right-handed layout. Left-handed mode (**VR Settings → Hand features → Hand
+mode**) swaps the two hands. A/B are on the right controller, X/Y on the left.
+
+| Action | Control |
+|---|---|
+| Move | Left stick |
+| Run | Click left stick (toggles) |
+| Turn | Turn your body, or the right stick (45° snap; options on **VR Settings → Turning**) |
+| Aim weapon or flashlight | Hold right grip |
+| Fire | Right trigger while aiming |
+| Alternate fire | B while aiming |
+| Reload | Click right stick, or grab the glowing part of the gun with the left grip (manual reload) |
+| Melee | Punch, or swing the gun |
+| Switch weapon | Right grip over your shoulder (top) or at your hip (low); each spot gives back the weapon you last used there |
+| Use, open, talk | A |
+| Kinesis (TK) | Point the left hand at an object and hold left grip; pull the left trigger to throw it |
+| Stasis | Point the left hand and press Y |
+| Heal / refill stasis | Left hand on the front hip pack: grip, then pull the trigger. Y with an empty stasis meter also uses a stasis pack |
+| Locator (path line) | Hold X; while holding, pull the left trigger or grip to change the target |
+| RIG (inventory) | Left grip next to your left temple |
+| RIG, shops, benches, save stations | Point with the left hand, pull the left trigger to select |
+| Pause menu | Click both sticks |
+| Game menus | Either stick to move, A to confirm, B to go back |
+| Loot crates and corpses | Punch or shoot them |
+| Hacking | Twist the right hand to find the blue weak points, then pull the right trigger |
+| Zero-G take off / land | Pull both triggers |
+| Zero-G flight | Left stick; steer with your head |
+| Zero-G boost | Click left stick while flying (toggles) |
+
+The in-game tutorial tips show these VR controls instead of the gamepad
+buttons.
 
 ## Renderer
 
-The installer places `dxvk_d3d9.dll` (DXVK 2.7.1, 32-bit) next to
-`deadspace2.exe` and `ds2stereo.ini` defaults to:
+The package includes `dxvk_d3d9.dll` (DXVK 2.7.1, 32-bit), which goes next to
+`deadspace2.exe`, and `ds2stereo.ini` defaults to:
 
 ```ini
 real_d3d9=dxvk_d3d9.dll
 vr_transport=dxvk
 ```
 
-The release also installs `dxvk.conf` with `d3d9.maxFrameRate = 120` and
-`d3d9.presentInterval = 0` (120 FPS cap, vsync disabled). An existing
-`dxvk.conf` is backed up during installation and restored on uninstall.
+The release also ships `dxvk.conf` with `d3d9.maxFrameRate = 120` and
+`d3d9.presentInterval = 0` (120 FPS cap, vsync disabled); without it DXVK caps
+Dead Space 2 at 60 FPS. `install.bat` backs up an existing `dxvk.conf` and
+restores it on uninstall.
 
 DXVK is the tested launch renderer and the direct Vulkan eye transport avoids
 the CPU readback path. If the game does not start on your GPU or you prefer the
@@ -138,27 +219,38 @@ Setup:
 2. Download `MarkerPatch.zip` from the
    [MarkerPatch releases](https://github.com/Wemino/MarkerPatch/releases) and
    extract it into the game folder, next to `deadspace2.exe`.
-3. Download [`MarkerPatch-VR.ps1`](MarkerPatch-VR.ps1) from this repository
-   into the game folder. Open PowerShell as administrator (it starts in
-   `C:\Windows\system32`), go to the game folder, then run the script:
+3. Open `MarkerPatch.ini` in the game folder with Notepad and set these six
+   options to `0` (they conflict with VR), then save:
+
+   ```ini
+   FixSuitChangeTiming = 0
+   FixHazardSuitIcon = 0
+   RawMouseInput = 0
+   AutoHideMouseCursor = 0
+   ImprovedAntiAliasingMode = 0
+   AchievementSupport = 0
+   ```
+
+   Or let [`MarkerPatch-VR.ps1`](MarkerPatch-VR.ps1) do it: open PowerShell as
+   administrator, go to the game folder, then run the script:
 
    ```powershell
    cd "C:\path\to\Dead Space 2"
    powershell -ExecutionPolicy Bypass -File .\MarkerPatch-VR.ps1 "C:\path\to\Dead Space 2"
    ```
 
-   It turns off the MarkerPatch options that conflict with VR. The release
-   already ships the DXVK frame-cap settings in `dxvk.conf`.
+   The release already ships the DXVK frame-cap settings in `dxvk.conf`.
 
 ## Logs and bug reports
 
-The installer creates a log folder:
+The log is `ds2stereo.log` in the game folder. If you used `install.bat`,
+it is in a log folder instead:
 
 ```text
 <game folder>\ds2pcvr-logs\<install id>\ds2stereo.log
 ```
 
-The log path is written as `out_dir` in `ds2stereo.ini`. Each launch
+The log path is `out_dir` in `ds2stereo.ini` (empty = the game folder). Each launch
 starts a fresh `ds2stereo.log`; previous sessions are kept as
 `ds2stereo-YYYYMMDD-HHMMSS.log`. The `log_sessions` key controls how many
 sessions are retained (default 10).
