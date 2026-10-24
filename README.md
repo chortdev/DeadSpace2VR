@@ -17,7 +17,7 @@ the game's own files, so deleting it brings the normal game back.
 Unofficial fan project, not affiliated with or endorsed by Electronic Arts.
 Dead Space 2 belongs to its owner.
 
-**[⬇ Download DS2PCVR 0.1.4](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
+**[⬇ Download DS2PCVR 0.1.5](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
 
 ## Known issues (being fixed)
 
@@ -41,8 +41,8 @@ Dead Space 2 belongs to its owner.
 1. Close Dead Space 2 and SteamVR.
 2. Open the game folder: in Steam, right-click **Dead Space 2** →
    **Manage** → **Browse local files**.
-3. Download `DS2PCVR-0.1.4-steam.zip` and extract it anywhere.
-4. Open the extracted `DS2PCVR-0.1.4` folder, select everything
+3. Download `DS2PCVR-0.1.5-steam.zip` and extract it anywhere.
+4. Open the extracted `DS2PCVR-0.1.5` folder, select everything
    (**Ctrl+A**), copy (**Ctrl+C**), and paste it into the game folder
    (**Ctrl+V**). If Windows asks, choose **Replace**.
 5. Start your headset link and SteamVR, then start Dead Space 2 from Steam.
@@ -168,8 +168,8 @@ by Wemino. It works together with this mod.
 Send us:
 
 - `ds2stereo.log` from the game folder (a new one is written every launch;
-  older ones are kept as `ds2stereo-<date>-<time>.log`; if you installed with
-  `install.bat`, look in the `ds2pcvr-logs` folder);
+  older ones are kept as `ds2stereo-<date>-<time>.log`; logs from before
+  0.1.5 of an `install.bat` install are in the `ds2pcvr-logs` folder);
 - `ds2stereo.ini` and `ds2vr-settings.ini` from the game folder;
 - your headset, how it connects (Virtual Desktop, Link, ALVR…) and your
   graphics card;
