@@ -17,7 +17,13 @@ the game's own files, so deleting it brings the normal game back.
 Unofficial fan project, not affiliated with or endorsed by Electronic Arts.
 Dead Space 2 belongs to its owner.
 
-**[⬇ Download DS2PCVR 0.1.3](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
+**[⬇ Download DS2PCVR 0.1.4](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
+
+## What's new in 0.1.4
+
+- **Performance timings are on by default.** The log now records how long
+  each part of a frame takes, so a low-FPS report needs only the log, no
+  settings change. To turn it off, set `perf_log=0` in `ds2stereo.ini`.
 
 ## What's new in 0.1.3
 
@@ -41,8 +47,8 @@ Dead Space 2 belongs to its owner.
 1. Close Dead Space 2 and SteamVR.
 2. Open the game folder: in Steam, right-click **Dead Space 2** →
    **Manage** → **Browse local files**.
-3. Download `DS2PCVR-0.1.3-steam.zip` and extract it anywhere.
-4. Open the extracted `DS2PCVR-0.1.3` folder, select everything
+3. Download `DS2PCVR-0.1.4-steam.zip` and extract it anywhere.
+4. Open the extracted `DS2PCVR-0.1.4` folder, select everything
    (**Ctrl+A**), copy (**Ctrl+C**), and paste it into the game folder
    (**Ctrl+V**). If Windows asks, choose **Replace**.
 5. Start your headset link and SteamVR, then start Dead Space 2 from Steam.
@@ -160,8 +166,8 @@ by Wemino. It works together with this mod.
   game's graphics settings.
 - **Shadows look different in each eye:** set `shadow_once=0` in
   `ds2stereo.ini` and tell us.
-- **Low frame rate:** set `stereo_perf=1` in `ds2stereo.ini`, play for a
-  minute, and send us the log.
+- **Low frame rate:** play for a minute where it is slow, then send us the
+  log (it records frame timings).
 
 ## Reporting a bug
 
