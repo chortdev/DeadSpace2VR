@@ -19,20 +19,14 @@ Dead Space 2 belongs to its owner.
 
 **[⬇ Download DS2PCVR 0.1.4](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
 
-## What's new in 0.1.4
+## Known issues (being fixed)
 
-- **Performance timings are on by default.** The log now records how long
-  each part of a frame takes, so a low-FPS report needs only the log, no
-  settings change. To turn it off, set `perf_log=0` in `ds2stereo.ini`.
-
-## What's new in 0.1.3
-
-- **Zero-G fixed:** pulling both triggers to take off now works, also while
-  the first zero-G tutorial tip is on screen. Still stuck? Send us your
-  [log](#reporting-a-bug).
-- **Easier install:** just copy the files into the game folder.
-- **Controls list** below.
-- From 0.1.2: higher frame rate on PCs where the CPU was the limit.
+- **Low FPS even on strong PCs.** Gameplay often stays around 40–50 FPS. The
+  limit is the CPU work of drawing two eyes, not the graphics card, so
+  lowering the resolution does not help. We are working on it; a log from
+  0.1.4 or newer helps (see [Reporting a bug](#reporting-a-bug)).
+- **The EA app version is not supported yet.** The mod works only with the
+  Steam version for now. EA app support is in progress.
 
 ## What you need
 
