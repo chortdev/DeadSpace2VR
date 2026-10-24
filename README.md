@@ -17,20 +17,21 @@ the game's own files, so deleting it brings the normal game back.
 Unofficial fan project, not affiliated with or endorsed by Electronic Arts.
 Dead Space 2 belongs to its owner.
 
-**[⬇ Download DS2PCVR 0.1.5](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
+**[⬇ Download DS2PCVR 0.1.6](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
 
 ## Known issues (being fixed)
 
 - **Low FPS even on strong PCs.** Gameplay often stays around 40–50 FPS. The
   limit is the CPU work of drawing two eyes, not the graphics card, so
-  lowering the resolution does not help. We are working on it; a log from
-  0.1.4 or newer helps (see [Reporting a bug](#reporting-a-bug)).
-- **The EA app version is not supported yet.** The mod works only with the
-  Steam version for now. EA app support is in progress.
+  lowering the resolution does not help. 0.1.6 removes one large part of the
+  mod's own CPU cost; we are working on the rest. A log from 0.1.6 helps (see
+  [Reporting a bug](#reporting-a-bug)).
 
 ## What you need
 
-- **Dead Space 2 on Steam** (Windows 10 or 11, 64-bit).
+- **Dead Space 2 for PC** (Windows 10 or 11, 64-bit), from Steam or the EA
+  app. Each has its own ZIP: `-steam` for Steam, `-ea` for the EA app. With
+  the wrong one the mod stays off.
 - A PC VR headset with two controllers, connected through **SteamVR**. Quest
   works through Virtual Desktop, Quest Link / Air Link or ALVR.
 - A graphics card with Vulkan support (any recent NVIDIA, AMD or Intel card).
@@ -39,13 +40,15 @@ Dead Space 2 belongs to its owner.
 ## Install
 
 1. Close Dead Space 2 and SteamVR.
-2. Open the game folder: in Steam, right-click **Dead Space 2** →
-   **Manage** → **Browse local files**.
-3. Download `DS2PCVR-0.1.5-steam.zip` and extract it anywhere.
-4. Open the extracted `DS2PCVR-0.1.5` folder, select everything
+2. Open the game folder (the one with `deadspace2.exe`). On Steam:
+   right-click **Dead Space 2** → **Manage** → **Browse local files**. On the
+   EA app it is the folder you picked when installing.
+3. Download `DS2PCVR-0.1.6-steam.zip` (Steam) or `DS2PCVR-0.1.6-ea.zip`
+   (EA app) and extract it anywhere.
+4. Open the extracted `DS2PCVR-0.1.6` folder, select everything
    (**Ctrl+A**), copy (**Ctrl+C**), and paste it into the game folder
    (**Ctrl+V**). If Windows asks, choose **Replace**.
-5. Start your headset link and SteamVR, then start Dead Space 2 from Steam.
+5. Start your headset link and SteamVR, then start Dead Space 2.
 6. **Windows 11 only:** set up [MarkerPatch](#windows-11-markerpatch).
 
 In the game, open **Settings → VR Settings** to pick standing or seated play
@@ -147,7 +150,8 @@ by Wemino. It works together with this mod.
 ## Problems?
 
 - **No VR, normal game starts:** make sure SteamVR is running before the
-  game, and that you have the Steam version of Dead Space 2.
+  game, and that the ZIP matches your game (`-steam` for Steam, `-ea` for
+  the EA app).
 - **Game crashes on start:** open `ds2stereo.ini` in the game folder with
   Notepad, change these two lines, and save:
 
