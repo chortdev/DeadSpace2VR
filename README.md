@@ -17,15 +17,15 @@ the game's own files, so deleting it brings the normal game back.
 Unofficial fan project, not affiliated with or endorsed by Electronic Arts.
 Dead Space 2 belongs to its owner.
 
-**[⬇ Download DS2PCVR 0.1.6](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
+**[⬇ Download DS2PCVR 0.1.7](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
 
 ## Known issues (being fixed)
 
 - **Low FPS even on strong PCs.** Gameplay often stays around 40–50 FPS. The
   limit is the CPU work of drawing two eyes, not the graphics card, so
   lowering the resolution does not help. 0.1.6 removes one large part of the
-  mod's own CPU cost; we are working on the rest. A log from 0.1.6 helps (see
-  [Reporting a bug](#reporting-a-bug)).
+  mod's own CPU cost; we are working on the rest. A log from 0.1.6 or newer
+  helps (see [Reporting a bug](#reporting-a-bug)).
 
 ## What you need
 
@@ -43,9 +43,9 @@ Dead Space 2 belongs to its owner.
 2. Open the game folder (the one with `deadspace2.exe`). On Steam:
    right-click **Dead Space 2** → **Manage** → **Browse local files**. On the
    EA app it is the folder you picked when installing.
-3. Download `DS2PCVR-0.1.6-steam.zip` (Steam) or `DS2PCVR-0.1.6-ea.zip`
+3. Download `DS2PCVR-0.1.7-steam.zip` (Steam) or `DS2PCVR-0.1.7-ea.zip`
    (EA app) and extract it anywhere.
-4. Open the extracted `DS2PCVR-0.1.6` folder, select everything
+4. Open the extracted `DS2PCVR-0.1.7` folder, select everything
    (**Ctrl+A**), copy (**Ctrl+C**), and paste it into the game folder
    (**Ctrl+V**). If Windows asks, choose **Replace**.
 5. Start your headset link and SteamVR, then start Dead Space 2.
@@ -80,7 +80,7 @@ swaps the hands. Tutorial tips in the game show these VR controls.
 | Walk | Left stick |
 | Run | Click the left stick (on/off) |
 | Turn | Turn your body, or push the right stick |
-| Pause menu | Click both sticks |
+| Pause menu | Click both sticks (keep them centred) |
 
 **Fighting**
 
@@ -160,12 +160,33 @@ by Wemino. It works together with this mod.
   vr_transport=cpu
   ```
 
-- **Stretched triangles around enemies:** turn off **Motion Blur** in the
-  game's graphics settings.
-- **Shadows look different in each eye:** set `shadow_once=0` in
-  `ds2stereo.ini` and tell us.
-- **Low frame rate:** play for a minute where it is slow, then send us the
-  log (it records frame timings).
+- **Game shows on a flat screen in SteamVR, or the menus break, after picking
+  a very high resolution:** since 0.1.7 the mod lowers a saved resolution above
+  8192 at start. Otherwise close the game, open
+  `%LOCALAPPDATA%\EA Games\Dead Space 2\settings.txt` with Notepad, set
+  `Window.Width = 1920` and `Window.Height = 1080`, and save.
+- **Menu cursor creeps up by itself and nothing can be selected** (goes away
+  when the mouse is unplugged): fixed in 0.1.7. It happened when the game
+  resolution was more than twice your monitor's height or width. On older
+  versions, unplug the mouse or pick a lower resolution.
+- **Low frame rate or stutter in big rooms:** pick a lower resolution in the
+  game's video settings (sizes above about 4500 wide stutter on many PCs). If
+  it is still slow, play for a minute where it is slow, then send us the log
+  (it records frame timings).
+- **Stretched triangles around enemies:** motion blur. Since 0.1.7 the mod
+  turns it off at every start. In the game it is under **Settings → Video →
+  Advanced**, which unlocks when **Quality** is set to **Customizable**.
+- **Something shows in one eye only** (fire, holograms, shadows, a darker
+  eye): fixed in 0.1.7. If you still see it, send a screenshot of each eye and
+  the log.
+- **Pause menu opens while walking and turning** (Index, Pimax controllers):
+  those sticks click when pushed hard. Since 0.1.7 a both-stick click with a
+  stick pushed is not a pause. If it still happens, send the log.
+- **Dark ring at the edge of the view while moving:** that is the comfort
+  vignette. Turn it off in **VR Settings → Turning / vignette → Movement
+  vignette**.
+- **Zero-G: both triggers do not take off:** send the log from that room
+  (since 0.1.7 it records why).
 
 ## Reporting a bug
 
