@@ -17,7 +17,7 @@ the game's own files, so deleting it brings the normal game back.
 Unofficial fan project, not affiliated with or endorsed by Electronic Arts.
 Dead Space 2 belongs to its owner.
 
-**[⬇ Download DS2PCVR 0.1.7](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
+**[⬇ Download DS2PCVR 0.1.8](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
 
 ## Known issues (being fixed)
 
@@ -48,9 +48,9 @@ Dead Space 2 belongs to its owner.
 2. Open the game folder (the one with `deadspace2.exe`). On Steam:
    right-click **Dead Space 2** → **Manage** → **Browse local files**. On the
    EA app it is the folder you picked when installing.
-3. Download `DS2PCVR-0.1.7-steam.zip` (Steam) or `DS2PCVR-0.1.7-ea.zip`
+3. Download `DS2PCVR-0.1.8-steam.zip` (Steam) or `DS2PCVR-0.1.8-ea.zip`
    (EA app) and extract it anywhere.
-4. Open the extracted `DS2PCVR-0.1.7` folder, select everything
+4. Open the extracted `DS2PCVR-0.1.8` folder, select everything
    (**Ctrl+A**), copy (**Ctrl+C**), and paste it into the game folder
    (**Ctrl+V**). If Windows asks, choose **Replace**.
 5. Start your headset link and SteamVR, then start Dead Space 2.
@@ -77,6 +77,14 @@ Delete `d3d9.dll` from the game folder. The game then starts without VR.
 
 A and B are on the right controller, X and Y on the left. Left-handed mode
 swaps the hands. Tutorial tips in the game show these VR controls.
+
+Other controllers (Index, Vive, Windows Mixed Reality, Pico…): if a button
+does the wrong thing, open **VR Settings → Controller buttons** (since 0.1.8).
+Pick **Left** or **Right** in the first row, select a button (A / X, B / Y,
+Grip, Stick click or Stick), confirm, then within 5 seconds press the button on
+that controller that should do this job (for **Stick**, push the stick or pad
+forward). The change is saved for that controller model only, in
+`ds2vr-controllers.ini`. **Reset this controller** goes back to the default.
 
 **Moving**
 
@@ -182,8 +190,8 @@ by Wemino. It works together with this mod.
   turns it off at every start. In the game it is under **Settings → Video →
   Advanced**, which unlocks when **Quality** is set to **Customizable**.
 - **Something shows in one eye only** (fire, holograms, shadows, a darker
-  eye): fixed in 0.1.7. If you still see it, send a screenshot of each eye and
-  the log.
+  eye): fixed in 0.1.7; the heat haze above fire in 0.1.8. If you still see
+  it, send a screenshot of each eye and the log.
 - **Pause menu opens while walking and turning** (Index, Pimax controllers):
   those sticks click when pushed hard. Since 0.1.7 a both-stick click with a
   stick pushed is not a pause. If it still happens, send the log.
@@ -193,6 +201,9 @@ by Wemino. It works together with this mod.
 - **Zero-G: both triggers do not take off:** first check `station_vr=1` in
   `ds2stereo.ini` (see [Known issues](#known-issues-being-fixed)). If it is
   already `1`, send the log from that room (since 0.1.7 it records why).
+- **A button does nothing or does the wrong thing** (Index, Vive, WMR and
+  other non-Quest controllers): remap it in **VR Settings → Controller
+  buttons** (see [Controls](#controls-quest-touch)).
 
 ## Reporting a bug
 
@@ -201,7 +212,8 @@ Send us:
 - `ds2stereo.log` from the game folder (a new one is written every launch;
   older ones are kept as `ds2stereo-<date>-<time>.log`; logs from before
   0.1.5 of an `install.bat` install are in the `ds2pcvr-logs` folder);
-- `ds2stereo.ini` and `ds2vr-settings.ini` from the game folder;
+- on versions before 0.1.8 also `ds2stereo.ini` and `ds2vr-settings.ini`
+  from the game folder (since 0.1.8 the log contains every settings file);
 - your headset, how it connects (Virtual Desktop, Link, ALVR…) and your
   graphics card;
 - what you did when it happened, plus a screenshot or short video if you can.
