@@ -26,6 +26,11 @@ Dead Space 2 belongs to its owner.
   lowering the resolution does not help. 0.1.6 removes one large part of the
   mod's own CPU cost; we are working on the rest. A log from 0.1.6 or newer
   helps (see [Reporting a bug](#reporting-a-bug)).
+- **Zero-G: both triggers never take off.** Possible fix: open
+  `ds2stereo.ini` in the game folder with Notepad and check that it says
+  `station_vr=1`. Setting it to `0` stops shops, benches and save stations
+  from opening by themselves, but it also turns off zero-G take-off and
+  landing, video message placement and the locator hold.
 
 ## What you need
 
@@ -185,8 +190,9 @@ by Wemino. It works together with this mod.
 - **Dark ring at the edge of the view while moving:** that is the comfort
   vignette. Turn it off in **VR Settings → Turning / vignette → Movement
   vignette**.
-- **Zero-G: both triggers do not take off:** send the log from that room
-  (since 0.1.7 it records why).
+- **Zero-G: both triggers do not take off:** first check `station_vr=1` in
+  `ds2stereo.ini` (see [Known issues](#known-issues-being-fixed)). If it is
+  already `1`, send the log from that room (since 0.1.7 it records why).
 
 ## Reporting a bug
 
