@@ -17,7 +17,7 @@ the game's own files, so deleting it brings the normal game back.
 Unofficial fan project, not affiliated with or endorsed by Electronic Arts.
 Dead Space 2 belongs to its owner.
 
-**[⬇ Download DS2PCVR 0.1.11](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
+**[⬇ Download DS2PCVR 0.1.12](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
 
 ## Known issues (being fixed)
 
@@ -25,7 +25,10 @@ Dead Space 2 belongs to its owner.
   limit is the CPU work of drawing two eyes, not the graphics card, so
   lowering the resolution does not help. 0.1.6 removes one large part of the
   mod's own CPU cost; we are working on the rest. A log from 0.1.6 or newer
-  helps (see [Reporting a bug](#reporting-a-bug)).
+  helps (see [Reporting a bug](#reporting-a-bug)). Since 0.1.12 the log also
+  shows whether the CPU or the graphics card is the limit: stay about 30
+  seconds where FPS drops before you send it. If FPS recovers while you hold
+  an object with kinesis, also try `native_tk_preview=off` in `ds2stereo.ini`.
 - **Zero-G: both triggers never take off.** Possible fix: open
   `ds2stereo.ini` in the game folder with Notepad and check that it says
   `station_vr=1`. Setting it to `0` stops shops, benches and save stations
@@ -48,9 +51,9 @@ Dead Space 2 belongs to its owner.
 2. Open the game folder (the one with `deadspace2.exe`). On Steam:
    right-click **Dead Space 2** → **Manage** → **Browse local files**. On the
    EA app it is the folder you picked when installing.
-3. Download `DS2PCVR-0.1.11-steam.zip` (Steam) or `DS2PCVR-0.1.11-ea.zip`
+3. Download `DS2PCVR-0.1.12-steam.zip` (Steam) or `DS2PCVR-0.1.12-ea.zip`
    (EA app) and extract it anywhere.
-4. Open the extracted `DS2PCVR-0.1.11` folder, select everything
+4. Open the extracted `DS2PCVR-0.1.12` folder, select everything
    (**Ctrl+A**), copy (**Ctrl+C**), and paste it into the game folder
    (**Ctrl+V**). If Windows asks, choose **Replace**.
 5. Start your headset link and SteamVR, then start Dead Space 2.
