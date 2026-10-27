@@ -17,7 +17,7 @@ the game's own files, so deleting it brings the normal game back.
 Unofficial fan project, not affiliated with or endorsed by Electronic Arts.
 Dead Space 2 belongs to its owner.
 
-**[⬇ Download DS2PCVR 0.1.8](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
+**[⬇ Download DS2PCVR 0.1.10](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
 
 ## Known issues (being fixed)
 
@@ -48,9 +48,9 @@ Dead Space 2 belongs to its owner.
 2. Open the game folder (the one with `deadspace2.exe`). On Steam:
    right-click **Dead Space 2** → **Manage** → **Browse local files**. On the
    EA app it is the folder you picked when installing.
-3. Download `DS2PCVR-0.1.8-steam.zip` (Steam) or `DS2PCVR-0.1.8-ea.zip`
+3. Download `DS2PCVR-0.1.10-steam.zip` (Steam) or `DS2PCVR-0.1.10-ea.zip`
    (EA app) and extract it anywhere.
-4. Open the extracted `DS2PCVR-0.1.8` folder, select everything
+4. Open the extracted `DS2PCVR-0.1.10` folder, select everything
    (**Ctrl+A**), copy (**Ctrl+C**), and paste it into the game folder
    (**Ctrl+V**). If Windows asks, choose **Replace**.
 5. Start your headset link and SteamVR, then start Dead Space 2.
@@ -145,8 +145,10 @@ by Wemino. It works together with this mod.
 1. Download `MarkerPatch.zip` from the
    [MarkerPatch releases](https://github.com/Wemino/MarkerPatch/releases) and
    extract it into the game folder.
-2. Open `MarkerPatch.ini` (in the game folder) with Notepad, set these six
-   lines to `0`, and save:
+2. Since 0.1.9 the mod sets these six lines to `0` in `MarkerPatch.ini` at
+   every start (the original is kept as `MarkerPatch.ini.before-ds2pcvr`).
+   On older versions open `MarkerPatch.ini` with Notepad, set them to `0`,
+   and save:
 
    ```ini
    FixSuitChangeTiming = 0
@@ -204,12 +206,21 @@ by Wemino. It works together with this mod.
 - **A button does nothing or does the wrong thing** (Index, Vive, WMR and
   other non-Quest controllers): remap it in **VR Settings → Controller
   buttons** (see [Controls](#controls-quest-touch)).
+- **Melee hits (hand or gun) do nothing above 60 Hz:** fixed in 0.1.10. On older
+  versions set the headset's refresh rate to 60 Hz.
+- **VR Settings says "(save failed)" and values do not change, or no
+  `ds2stereo.log` appears:** the game folder is read-only (EA's default
+  `C:\Program Files\EA Games`). Since 0.1.10 the mod then keeps its settings
+  and log in `%LOCALAPPDATA%\DS2PCVR`. On older versions set `out_dir=` in
+  `ds2stereo.ini` to a folder you can write, for example
+  `out_dir=C:\Users\<you>\Documents\DS2PCVR` (create the folder first).
 
 ## Reporting a bug
 
 Send us:
 
-- `ds2stereo.log` from the game folder (a new one is written every launch;
+- `ds2stereo.log` from the game folder, or from `%LOCALAPPDATA%\DS2PCVR` when
+  the game folder is read-only (0.1.10+) (a new one is written every launch;
   older ones are kept as `ds2stereo-<date>-<time>.log`; logs from before
   0.1.5 of an `install.bat` install are in the `ds2pcvr-logs` folder);
 - on versions before 0.1.8 also `ds2stereo.ini` and `ds2vr-settings.ini`
