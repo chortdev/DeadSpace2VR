@@ -17,7 +17,7 @@ the game's own files, so deleting it brings the normal game back.
 Unofficial fan project, not affiliated with or endorsed by Electronic Arts.
 Dead Space 2 belongs to its owner.
 
-**[⬇ Download DS2PCVR 0.1.12](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
+**[⬇ Download DS2PCVR 0.1.13](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
 
 ## Known issues (being fixed)
 
@@ -51,9 +51,9 @@ Dead Space 2 belongs to its owner.
 2. Open the game folder (the one with `deadspace2.exe`). On Steam:
    right-click **Dead Space 2** → **Manage** → **Browse local files**. On the
    EA app it is the folder you picked when installing.
-3. Download `DS2PCVR-0.1.12-steam.zip` (Steam) or `DS2PCVR-0.1.12-ea.zip`
+3. Download `DS2PCVR-0.1.13-steam.zip` (Steam) or `DS2PCVR-0.1.13-ea.zip`
    (EA app) and extract it anywhere.
-4. Open the extracted `DS2PCVR-0.1.12` folder, select everything
+4. Open the extracted `DS2PCVR-0.1.13` folder, select everything
    (**Ctrl+A**), copy (**Ctrl+C**), and paste it into the game folder
    (**Ctrl+V**). If Windows asks, choose **Replace**.
 5. Start your headset link and SteamVR, then start Dead Space 2.
@@ -70,7 +70,9 @@ already exist, pick **Let me decide for each file** and **keep your old**:
 Replace everything else. Your VR Settings choices are kept either way.
 
 The ZIP also has `install.bat`, an optional installer that does the same
-copy with backups. You don't need it.
+copy with backups. You don't need it. Since 0.1.13, running it over an
+installed build updates it: your `ds2stereo.ini` and the backups from the
+first install are kept.
 
 ### Uninstall
 
@@ -89,12 +91,36 @@ that controller that should do this job (for **Stick**, push the stick or pad
 forward). The change is saved for that controller model only, in
 `ds2vr-controllers.ini`. **Reset this controller** goes back to the default.
 
+- **Steam Frame and Valve Index (beta):** SteamVR's default bindings for
+  older games don't fit these controllers. On the Frame, the right X and Y
+  don't work as X and Y. On the Index, A acts as grip. The ZIP has a SteamVR
+  binding for each: `ds2pcvr-binding-frame.json` and
+  `ds2pcvr-binding-index.json`.
+  1. In your **Documents** folder, open `steamvr\input` and create a folder
+     named `import` there if it doesn't exist.
+  2. Copy the file for your controller into `Documents\steamvr\input\import`.
+  3. Start SteamVR and Dead Space 2. In SteamVR open **Settings →
+     Controllers → Manage controller bindings → Dead Space 2 → Custom →
+     Choose another**. Under **Bindings in the import directory**, pick
+     **Dead Space 2 VR - Steam Frame** or **Dead Space 2 VR - Valve Index**
+     and import it.
+
+  With the Frame binding, A, B, X and Y on the right controller do what the
+  game shows. On the left controller, **D-pad down** is X and the other D-pad
+  directions are Y. The bumpers act as the triggers. Without a binding on the
+  Index, the trigger confirms in game menus. These bindings are new. Tell us on
+  Discord if one doesn't work for you.
+- **Vive wands:** press the lower edge of the trackpad for A / X; the menu
+  button is B / Y; the trackpad centre click is the stick click.
+- **Other controllers without an A button:** the trigger confirms in game menus,
+  so you can always reach **Controller buttons**.
+
 **Moving**
 
 | Do this | How |
 |---|---|
 | Walk | Left stick |
-| Run | Click the left stick (on/off) |
+| Run | Click the left stick (on/off). Run speed: **VR Settings → Hand features → Run speed** (x1.1 is the speed of earlier versions) |
 | Turn | Turn your body, or push the right stick |
 | Pause menu | Click both sticks (keep them centred) |
 
@@ -110,7 +136,7 @@ forward). The change is saved for that controller model only, in
 | Change weapon | Right grip over your shoulder or at your hip; each spot gives back the weapon you last used there |
 | Kinesis (grab objects) | Point your left hand at something and hold the left grip; pull the left trigger to throw |
 | Stasis (slow enemies) | Point your left hand and press Y |
-| Heal / refill stasis | Put your left hand on the pack at the front of your hip, grip, then pull the trigger |
+| Heal / refill stasis | Put your left hand on the pack at the front of your hip, grip, then pull the trigger. While your left hand points kinesis at an object, the grip grabs the object instead |
 
 **Everything else**
 
@@ -120,6 +146,10 @@ forward). The change is saved for that controller model only, in
 | Path line (locator) | Hold X; while holding, pull the left trigger or grip to change the destination |
 | Inventory (RIG) | Left grip next to your left temple |
 | Inventory, shops, benches, saving | Point with your left hand, pull the left trigger to choose |
+| Use your gun hand in the inventory, shops, benches and save stations | Point the right hand at the panel and pull its trigger once: that ray becomes the bright one and the other turns faint. Pull again to choose. Pull the other hand's trigger on the panel to switch back |
+| Store items in the safe | In a store, hold the grip on an item in the **Inventory** tab and let go over the **Safe** tab (and back the same way). In the Sell tab a grip tap on an item moves it to the safe |
+| Buy or sell with one click, or confirm first | **VR Settings → Hand features → Shop: buy/sell in one click** |
+| A / B at shops and benches | A confirms, B goes back. A also closes "schematic downloaded" / new item |
 | Game menus | Either stick to move, A to choose, B to go back |
 | Open crates and loot bodies | Punch or shoot them |
 | Hacking | Twist your right hand to find the blue spots, then pull the right trigger |
@@ -137,13 +167,33 @@ These weapons can be reloaded by hand:
 - Line Gun
 
 Put your left hand on the glowing part of the gun and squeeze the left grip.
+Since 0.1.13:
+
+- When the clip is empty, the part that starts the reload blinks until your
+  left hand is near it. With a new clip in your hand, the place it goes
+  blinks too, and glows steadily when the clip is close enough to push in.
+  The last step (if the gun has one) blinks until you reach it.
+- A full clip can be reloaded by hand too. The motion plays and no ammo is
+  used.
+- Let go of the part you are pulling out before it is done, and the reload
+  ends at once: the gun is ready.
+- Aim and pull the trigger during a reload: the reload stops and the gun
+  fires with that same pull. Hold the trigger to keep firing.
+
 Other weapons reload with a click of the right stick. To turn hand reloading
 off: **VR Settings → Hand features → Manual reload (beta)**.
+
+### Subtitles
+
+Since 0.1.13, spoken dialogue subtitles are placed for the headset: at the
+bottom of the view, at 75% size.
 
 ## Windows 11: MarkerPatch
 
 On Windows 11 the game needs [MarkerPatch](https://github.com/Wemino/MarkerPatch)
-by Wemino. It works together with this mod.
+by Wemino. It works together with this mod. Use it on Windows 10 too if Dead
+Space 2 does not start at all, even without this mod. That happens on CPUs with
+many cores, for example Intel 12th–14th gen.
 
 1. Download `MarkerPatch.zip` from the
    [MarkerPatch releases](https://github.com/Wemino/MarkerPatch/releases) and
@@ -187,6 +237,14 @@ by Wemino. It works together with this mod.
   when the mouse is unplugged): fixed in 0.1.7. It happened when the game
   resolution was more than twice your monitor's height or width. On older
   versions, unplug the mouse or pick a lower resolution.
+- **Frame rate falls to about 30 once you hold a gun, and comes back while
+  holding something with kinesis or at a save station** (some non-Steam
+  copies): fixed in 0.1.13. The mod re-checked its game files every frame.
+- **Game needs closing twice:** the "Are you sure you want to quit?" box
+  opens on the desktop, not in the headset. Since 0.1.13 the mod answers it
+  for you.
+- **Heavy full-screen blur or depth-of-field lines** (final boss): turn them
+  off in **VR Settings → Turning / vignette → Gameplay blur**.
 - **Low frame rate or stutter in big rooms:** pick a lower resolution in the
   game's video settings (sizes above about 4500 wide stutter on many PCs). If
   it is still slow, play for a minute where it is slow, then send us the log
