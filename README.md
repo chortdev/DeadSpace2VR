@@ -17,7 +17,7 @@ the game's own files, so deleting it brings the normal game back.
 Unofficial fan project, not affiliated with or endorsed by Electronic Arts.
 Dead Space 2 belongs to its owner.
 
-**[⬇ Download DS2PCVR 0.1.13](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
+**[⬇ Download DS2PCVR 0.2.0](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
 
 ## Known issues (being fixed)
 
@@ -29,11 +29,14 @@ Dead Space 2 belongs to its owner.
   shows whether the CPU or the graphics card is the limit: stay about 30
   seconds where FPS drops before you send it. If FPS recovers while you hold
   an object with kinesis, also try `native_tk_preview=off` in `ds2stereo.ini`.
-- **Zero-G: both triggers never take off.** Possible fix: open
+- **Zero-G: the trigger never takes off.** Possible fix: open
   `ds2stereo.ini` in the game folder with Notepad and check that it says
   `station_vr=1`. Setting it to `0` stops shops, benches and save stations
   from opening by themselves, but it also turns off zero-G take-off and
   landing, video message placement and the locator hold.
+- **Beta features** (marked *beta* in VR Settings) are new in 0.2.0 and were
+  tested by only a few players: teleport, stomp gesture, Full body (IK) and
+  the Force Gun's one shot per pump. Tell us on Discord how they work for you.
 
 ## What you need
 
@@ -51,16 +54,45 @@ Dead Space 2 belongs to its owner.
 2. Open the game folder (the one with `deadspace2.exe`). On Steam:
    right-click **Dead Space 2** → **Manage** → **Browse local files**. On the
    EA app it is the folder you picked when installing.
-3. Download `DS2PCVR-0.1.13-steam.zip` (Steam) or `DS2PCVR-0.1.13-ea.zip`
+3. Download `DS2PCVR-0.2.0-steam.zip` (Steam) or `DS2PCVR-0.2.0-ea.zip`
    (EA app) and extract it anywhere.
-4. Open the extracted `DS2PCVR-0.1.13` folder, select everything
+4. Open the extracted `DS2PCVR-0.2.0` folder, select everything
    (**Ctrl+A**), copy (**Ctrl+C**), and paste it into the game folder
    (**Ctrl+V**). If Windows asks, choose **Replace**.
 5. Start your headset link and SteamVR, then start Dead Space 2.
 6. **Windows 11 only:** set up [MarkerPatch](#windows-11-markerpatch).
+7. **Steam Frame or Valve Index controllers:** import the SteamVR binding
+   ([steps below](#steam-frame-and-valve-index-controllers)).
 
 In the game, open **Settings → VR Settings** to pick standing or seated play
 and how you turn. Left-handed? **VR Settings → Hand features → Hand mode**.
+
+### Steam Frame and Valve Index controllers
+
+Beta. SteamVR's default bindings for older games don't fit these
+controllers. On the Frame, the right X and Y don't work as X and Y. On the
+Index, A acts as grip. The ZIP has a SteamVR binding for each:
+`ds2pcvr-binding-frame.json` and `ds2pcvr-binding-index.json`. SteamVR
+does not read them from the game folder; import the one you need once:
+
+1. In your **Documents** folder, open `steamvr\input` and create a folder
+   named `import` there if it doesn't exist.
+2. Copy the file for your controller into `Documents\steamvr\input\import`.
+3. Start SteamVR and Dead Space 2. In SteamVR open **Settings →
+   Controllers → Manage controller bindings → Dead Space 2 → Custom →
+   Choose another**. Under **Bindings in the import directory**, pick
+   **Dead Space 2 VR - Steam Frame** or **Dead Space 2 VR - Valve Index**
+   and import it.
+
+With the Frame binding, A, B, X and Y on the right controller are A, B, X
+and Y in the game. On the left controller, **D-pad down** is X and the other
+D-pad directions are Y. The bumpers act as the triggers.
+
+With the Index binding, A and B on the right controller are A and B; A and B
+on the left controller are X and Y. Grip is squeezing the handle. Without a
+binding on the Index, the trigger confirms in game menus.
+
+These bindings are new. Tell us on Discord if one doesn't work for you.
 
 ### Update
 
@@ -91,25 +123,8 @@ that controller that should do this job (for **Stick**, push the stick or pad
 forward). The change is saved for that controller model only, in
 `ds2vr-controllers.ini`. **Reset this controller** goes back to the default.
 
-- **Steam Frame and Valve Index (beta):** SteamVR's default bindings for
-  older games don't fit these controllers. On the Frame, the right X and Y
-  don't work as X and Y. On the Index, A acts as grip. The ZIP has a SteamVR
-  binding for each: `ds2pcvr-binding-frame.json` and
-  `ds2pcvr-binding-index.json`.
-  1. In your **Documents** folder, open `steamvr\input` and create a folder
-     named `import` there if it doesn't exist.
-  2. Copy the file for your controller into `Documents\steamvr\input\import`.
-  3. Start SteamVR and Dead Space 2. In SteamVR open **Settings →
-     Controllers → Manage controller bindings → Dead Space 2 → Custom →
-     Choose another**. Under **Bindings in the import directory**, pick
-     **Dead Space 2 VR - Steam Frame** or **Dead Space 2 VR - Valve Index**
-     and import it.
-
-  With the Frame binding, A, B, X and Y on the right controller do what the
-  game shows. On the left controller, **D-pad down** is X and the other D-pad
-  directions are Y. The bumpers act as the triggers. Without a binding on the
-  Index, the trigger confirms in game menus. These bindings are new. Tell us on
-  Discord if one doesn't work for you.
+- **Steam Frame and Valve Index:** import the SteamVR binding from the ZIP,
+  see [Steam Frame and Valve Index controllers](#steam-frame-and-valve-index-controllers).
 - **Vive wands:** press the lower edge of the trackpad for A / X; the menu
   button is B / Y; the trackpad centre click is the stick click.
 - **Other controllers without an A button:** the trigger confirms in game menus,
@@ -122,6 +137,7 @@ forward). The change is saved for that controller model only, in
 | Walk | Left stick |
 | Run | Click the left stick (on/off). Run speed: **VR Settings → Hand features → Run speed** (x1.1 is the speed of earlier versions) |
 | Turn | Turn your body, or push the right stick |
+| Teleport (beta) | Turn it on in **VR Settings → VR features → Teleport**. Push the left stick forward to aim the arc from your left hand, let go to go there |
 | Pause menu | Click both sticks (keep them centred) |
 
 **Fighting**
@@ -133,16 +149,17 @@ forward). The change is saved for that controller model only, in
 | Alternate fire | B while aiming |
 | Reload | Click the right stick, or [reload by hand](#reloading-by-hand) |
 | Melee | Punch, or swing the gun |
+| Stomp (beta) | Turn it on in **VR Settings → VR features → Stomp gesture**. Look down and drive both hands down fast, together |
 | Change weapon | Right grip over your shoulder or at your hip; each spot gives back the weapon you last used there |
 | Kinesis (grab objects) | Point your left hand at something and hold the left grip; pull the left trigger to throw |
-| Stasis (slow enemies) | Point your left hand and press Y |
+| Stasis (slow enemies) | Point your left hand and pull the left trigger, or press Y. A thin aim ray can show where it goes: **VR Settings → VR features → Stasis aim ray** |
 | Heal / refill stasis | Put your left hand on the pack at the front of your hip, grip, then pull the trigger. While your left hand points kinesis at an object, the grip grabs the object instead |
 
 **Everything else**
 
 | Do this | How |
 |---|---|
-| Use, open doors, talk | A |
+| Use, open doors, talk | A, or reach quickly toward the door panel, store, bench or item |
 | Path line (locator) | Hold X; while holding, pull the left trigger or grip to change the destination |
 | Inventory (RIG) | Left grip next to your left temple |
 | Inventory, shops, benches, saving | Point with your left hand, pull the left trigger to choose |
@@ -153,20 +170,32 @@ forward). The change is saved for that controller model only, in
 | Game menus | Either stick to move, A to choose, B to go back |
 | Open crates and loot bodies | Punch or shoot them |
 | Hacking | Twist your right hand to find the blue spots, then pull the right trigger |
-| Zero-G: take off / land | Pull both triggers |
-| Zero-G: fly | Left stick; steer with your head |
+| Shake off creatures, break free | Shake the controllers hard (A still works) |
+| Crawl through vents | Grip with either hand and pull yourself along, like holding a handrail. The left stick still works |
+| Zero-G: take off / land | Pull the right trigger with the right grip open |
+| Zero-G: fly | Left stick; steer with your head. The right stick turns you in any direction |
 | Zero-G: boost | Click the left stick while flying (on/off) |
 
 ### Reloading by hand
 
-These weapons can be reloaded by hand:
-
-- Plasma Cutter
-- Javelin Gun
-- Flamethrower
-- Line Gun
+Since 0.2.0 every gun can be reloaded by hand: Plasma Cutter, Pulse Rifle,
+Ripper, Line Gun, Flamethrower, Javelin Gun, Seeker Rifle, Force Gun, Contact
+Beam, Detonator and Rivet Gun.
 
 Put your left hand on the glowing part of the gun and squeeze the left grip.
+Some guns show a label at that part:
+
+- **Pulse Rifle:** push the part with your open hand, or flick the gun down
+  and up (FLICK DOWN / FLICK UP).
+- **Contact Beam:** pull the part and keep holding while the reload plays
+  (PULL AND HOLD). Letting go cancels it.
+- **Detonator:** punch the clip out (PUNCH); the new clip seats as soon as it
+  touches the socket.
+- **Force Gun:** pump it with your left hand (PUMP). By default it fires once
+  per pump, turn that off in **VR Settings → Hand features → Force Gun: pump
+  after each shot (beta)**.
+- **Flamethrower:** turn your wrist to turn the canister.
+
 Since 0.1.13:
 
 - When the clip is empty, the part that starts the reload blinks until your
@@ -180,8 +209,20 @@ Since 0.1.13:
 - Aim and pull the trigger during a reload: the reload stops and the gun
   fires with that same pull. Hold the trigger to keep firing.
 
-Other weapons reload with a click of the right stick. To turn hand reloading
+A click of the right stick still reloads every gun. To turn hand reloading
 off: **VR Settings → Hand features → Manual reload (beta)**.
+
+### New VR Settings in 0.2.0
+
+- **VR features** (Settings → VR Settings → VR features): teleport (beta) with
+  fade time, speed, range and "Stick also walks"; stasis aim ray (Never /
+  finger on the left trigger / while holding the kinesis grip / Always); stomp
+  gesture (beta); finger tracking (from the controller's trigger, grip and thumb
+  touch, or from Quest hand tracking).
+- **Hand features → Gun and TK lasers / color:** turn the gun and kinesis
+  lasers on or off and pick their colour.
+- **Hand features → Arm coverage → Full body (IK, beta):** the whole body
+  follows your head and hands.
 
 ### Subtitles
 
@@ -261,7 +302,8 @@ many cores, for example Intel 12th–14th gen.
 - **Dark ring at the edge of the view while moving:** that is the comfort
   vignette. Turn it off in **VR Settings → Turning / vignette → Movement
   vignette**.
-- **Zero-G: both triggers do not take off:** first check `station_vr=1` in
+- **Zero-G: the right trigger does not take off** (since 0.2.0 it is the right
+  trigger with the right grip open, not both triggers): first check `station_vr=1` in
   `ds2stereo.ini` (see [Known issues](#known-issues-being-fixed)). If it is
   already `1`, send the log from that room (since 0.1.7 it records why).
 - **A button does nothing or does the wrong thing** (Index, Vive, WMR and
