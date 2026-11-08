@@ -17,7 +17,7 @@ the game's own files, so deleting it brings the normal game back.
 Unofficial fan project, not affiliated with or endorsed by Electronic Arts.
 Dead Space 2 belongs to its owner.
 
-**[⬇ Download DS2PCVR 0.2.0](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
+**[⬇ Download DS2PCVR 0.2.1](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
 
 ## Known issues (being fixed)
 
@@ -54,9 +54,9 @@ Dead Space 2 belongs to its owner.
 2. Open the game folder (the one with `deadspace2.exe`). On Steam:
    right-click **Dead Space 2** → **Manage** → **Browse local files**. On the
    EA app it is the folder you picked when installing.
-3. Download `DS2PCVR-0.2.0-steam.zip` (Steam) or `DS2PCVR-0.2.0-ea.zip`
+3. Download `DS2PCVR-0.2.1-steam.zip` (Steam) or `DS2PCVR-0.2.1-ea.zip`
    (EA app) and extract it anywhere.
-4. Open the extracted `DS2PCVR-0.2.0` folder, select everything
+4. Open the extracted `DS2PCVR-0.2.1` folder, select everything
    (**Ctrl+A**), copy (**Ctrl+C**), and paste it into the game folder
    (**Ctrl+V**). If Windows asks, choose **Replace**.
 5. Start your headset link and SteamVR, then start Dead Space 2.
@@ -137,6 +137,7 @@ forward). The change is saved for that controller model only, in
 | Walk | Left stick |
 | Run | Click the left stick (on/off). Run speed: **VR Settings → Hand features → Run speed** (x1.1 is the speed of earlier versions) |
 | Turn | Turn your body, or push the right stick |
+| Recenter the view | Use your headset's own recenter: hold the Oculus / Meta button on Quest, or **Reset view** in SteamVR (since 0.2.1). F8 on the keyboard also works |
 | Teleport (beta) | Turn it on in **VR Settings → VR features → Teleport**. Push the left stick forward to aim the arc from your left hand, let go to go there |
 | Pause menu | Click both sticks (keep them centred) |
 
