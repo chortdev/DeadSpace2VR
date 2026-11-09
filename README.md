@@ -40,9 +40,17 @@ Dead Space 2 belongs to its owner.
 
 ## What you need
 
-- **Dead Space 2 for PC** (Windows 10 or 11, 64-bit), from Steam or the EA
-  app. Each has its own ZIP: `-steam` for Steam, `-ea` for the EA app. With
-  the wrong one the mod stays off.
+- **Dead Space 2 for PC** (Windows 10 or 11, 64-bit), from Steam, the EA
+  app, or the original non-Steam retail release. Each has its own ZIP:
+  `-steam` for Steam, `-ea` for the EA app, `-pinned` for the original retail
+  version. With the wrong one the mod stays off. Not sure which one you have?
+  Check the size of `deadspace2.exe` (right-click → Properties):
+
+  | `deadspace2.exe` size | ZIP |
+  |---|---|
+  | 48,444,416 bytes | `-steam` |
+  | 32,033,696 bytes | `-ea` |
+  | 63,201,280 bytes | `-pinned` |
 - A PC VR headset with two controllers, connected through **SteamVR**. Quest
   works through Virtual Desktop, Quest Link / Air Link or ALVR.
 - A graphics card with Vulkan support (any recent NVIDIA, AMD or Intel card).
@@ -52,10 +60,11 @@ Dead Space 2 belongs to its owner.
 
 1. Close Dead Space 2 and SteamVR.
 2. Open the game folder (the one with `deadspace2.exe`). On Steam:
-   right-click **Dead Space 2** → **Manage** → **Browse local files**. On the
-   EA app it is the folder you picked when installing.
-3. Download `DS2PCVR-0.2.2-steam.zip` (Steam) or `DS2PCVR-0.2.2-ea.zip`
-   (EA app) and extract it anywhere.
+   right-click **Dead Space 2** → **Manage** → **Browse local files**. For the
+   EA app or the retail version it is the folder you picked when installing.
+3. Download `DS2PCVR-0.2.2-steam.zip` (Steam), `DS2PCVR-0.2.2-ea.zip`
+   (EA app) or `DS2PCVR-0.2.2-pinned.zip` (original retail) and extract it
+   anywhere.
 4. Open the extracted `DS2PCVR-0.2.2` folder, select everything
    (**Ctrl+A**), copy (**Ctrl+C**), and paste it into the game folder
    (**Ctrl+V**). If Windows asks, choose **Replace**.
@@ -279,7 +288,8 @@ many cores, for example Intel 12th–14th gen.
 
 - **No VR, normal game starts:** make sure SteamVR is running before the
   game, and that the ZIP matches your game (`-steam` for Steam, `-ea` for
-  the EA app).
+  the EA app, `-pinned` for the original retail version; see the size table
+  under [What you need](#what-you-need)).
 - **Game crashes on start:** open `ds2stereo.ini` in the game folder with
   Notepad, change these two lines, and save:
 
