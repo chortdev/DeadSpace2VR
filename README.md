@@ -17,7 +17,7 @@ the game's own files, so deleting it brings the normal game back.
 Unofficial fan project, not affiliated with or endorsed by Electronic Arts.
 Dead Space 2 belongs to its owner.
 
-**[⬇ Download DS2PCVR 0.2.2](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
+**[⬇ Download DS2PCVR 0.3.0](https://github.com/chortdev/DeadSpace2VR/releases/latest)**
 
 ## Known issues (being fixed)
 
@@ -62,10 +62,10 @@ Dead Space 2 belongs to its owner.
 2. Open the game folder (the one with `deadspace2.exe`). On Steam:
    right-click **Dead Space 2** → **Manage** → **Browse local files**. For the
    EA app or the retail version it is the folder you picked when installing.
-3. Download `DS2PCVR-0.2.2-steam.zip` (Steam), `DS2PCVR-0.2.2-ea.zip`
-   (EA app) or `DS2PCVR-0.2.2-pinned.zip` (original retail) and extract it
+3. Download `DS2PCVR-0.3.0-steam.zip` (Steam), `DS2PCVR-0.3.0-ea.zip`
+   (EA app) or `DS2PCVR-0.3.0-pinned.zip` (original retail) and extract it
    anywhere.
-4. Open the extracted `DS2PCVR-0.2.2` folder, select everything
+4. Open the extracted `DS2PCVR-0.3.0` folder, select everything
    (**Ctrl+A**), copy (**Ctrl+C**), and paste it into the game folder
    (**Ctrl+V**). If Windows asks, choose **Replace**.
 5. Start your headset link and SteamVR, then start Dead Space 2.
@@ -144,10 +144,10 @@ forward). The change is saved for that controller model only, in
 | Do this | How |
 |---|---|
 | Walk | Left stick |
-| Run | Click the left stick (on/off). Run speed: **VR Settings → Hands and weapons → Run speed** (x1.1 is the speed of earlier versions) |
+| Run | Click the left stick (on/off). Run speed: **VR Settings → Movement and turning → Run speed** (x1.1 is the speed of earlier versions) |
 | Turn | Turn your body, or push the right stick |
 | Recenter the view | Use your headset's own recenter: hold the Oculus / Meta button on Quest, or **Reset view** in SteamVR (since 0.2.1). F8 on the keyboard also works |
-| Teleport (beta) | Turn it on in **VR Settings → Teleport (beta) → Teleport**. Push the left stick forward to aim the arc from your left hand, let go to go there |
+| Teleport (beta) | Turn it on in **VR Settings → Movement and turning → Teleport (beta) → Teleport**. Push the left stick forward to aim the arc from your left hand, let go to go there |
 | Pause menu | Click both sticks (keep them centred) |
 
 **Fighting**
@@ -159,11 +159,11 @@ forward). The change is saved for that controller model only, in
 | Alternate fire | B while aiming |
 | Reload | Click the right stick, or [reload by hand](#reloading-by-hand) |
 | Melee | Punch, or swing the gun |
-| Stomp (beta) | Turn it on in **VR Settings → Telekinesis, stasis, stomp → Stomp gesture (beta)**. Look down and drive both hands down fast, together |
-| Change weapon | Right grip over your shoulder or at your hip; each spot gives back the weapon you last used there |
+| Stomp (beta) | Look down and drive both hands down fast, together. On by default since 0.3.0; switch it off in **VR Settings → Abilities, RIG and store → Stomp gesture (beta)** |
+| Change weapon | Right grip over your shoulder or at your hip; each spot gives back the weapon you last used there. Or pull the right trigger with the right grip open: the game's weapon hologram appears; point either hand at a weapon and let go of the trigger to take it (squeezing the grip closes it) |
 | Kinesis (grab objects) | Point your left hand at something and hold the left grip; pull the left trigger to throw |
-| Stasis (slow enemies) | Point your left hand and pull the left trigger, or press Y. A thin aim ray can show where it goes: **VR Settings → Telekinesis, stasis, stomp → Stasis aim ray (left hand)** |
-| Heal / refill stasis | Put your left hand on the pack at the front of your hip, grip, then pull the trigger. While your left hand points kinesis at an object, the grip grabs the object instead |
+| Stasis (slow enemies) | Point your left hand and pull the left trigger, or press Y. A thin aim ray can show where it goes: **VR Settings → Abilities, RIG and store → Stasis aim ray (left hand)** |
+| Heal / refill stasis | Put your left hand on the pack at the front of your hip, grip, then pull the trigger. With your hand on a pack the grip takes the pack, even if kinesis points at an object |
 
 **Everything else**
 
@@ -175,7 +175,7 @@ forward). The change is saved for that controller model only, in
 | Inventory, shops, benches, saving | Point with your left hand, pull the left trigger to choose |
 | Use your gun hand in the inventory, shops, benches and save stations | Point the right hand at the panel and pull its trigger once: that ray becomes the bright one and the other turns faint. Pull again to choose. Pull the other hand's trigger on the panel to switch back |
 | Store items in the safe | In a store, hold the grip on an item in the **Inventory** tab and let go over the **Safe** tab (and back the same way). In the Sell tab a grip tap on an item moves it to the safe |
-| Buy or sell with one click, or confirm first | **VR Settings → Hands and weapons → Shop: buy/sell in one click** |
+| Buy or sell with one click, or confirm first | **VR Settings → Abilities, RIG and store → Store: buy/sell in one click** |
 | A / B at shops and benches | A confirms, B goes back. A also closes "schematic downloaded" / new item |
 | Game menus | Either stick to move, A to choose, B to go back |
 | Open crates and loot bodies | Punch or shoot them |
@@ -222,9 +222,82 @@ Since 0.1.13:
 A click of the right stick still reloads every gun. To turn hand reloading
 off: **VR Settings → Hands and weapons → Manual reload (beta)**.
 
+### New in 0.3.0
+
+**Combat**
+- Alternate fire works again (B while aiming), including the Plasma Cutter's
+  rotate. Before, it only worked while kinesis held an object.
+- Fast punches one right after another all land, and you can punch during a
+  manual reload.
+- Stomp (beta) is on by default. The view no longer shakes during the stomp,
+  your legs show, and the gun stays in your hand. Switch it in **VR Settings →
+  Abilities, RIG and store → Stomp gesture (beta)**.
+- Gun recoil (**Hands and weapons → Gun inertia and recoil (beta)**): new
+  strength per gun; the gun also kicks back, not only up; half as strong with
+  two hands. A shot gives a medium vibration on the gun hand.
+
+**Weapon hologram (D-pad weapons)**
+- Pull the right trigger with the right grip open: the game's weapon hologram
+  appears. Point either hand at a weapon and let go of the trigger to take it;
+  squeezing the grip closes it. A green ring and a short vibration mark the
+  weapon you point at. The hologram does not turn with your head.
+
+**Kinesis and stasis**
+- Objects held with kinesis stay at your hand while you walk.
+- A no longer drops the held object. Holding an object gives a medium
+  vibration.
+- With your left hand on a stasis or health pack, the grip takes the pack,
+  even if kinesis points at something.
+- Train hang: the left trigger fires stasis.
+
+**Reloading by hand**
+- The ammo clip grab zone at the hip is half the size.
+- Pulse Rifle: reload only with the down/up flick of the gun. A flick needs a
+  quick snap and counts only straight up/down moves.
+- Flamethrower: the fuel canister glows, and the hand turns anticlockwise with
+  the twist.
+
+**Inventory (RIG)**
+- The RIG opens while you aim or reload.
+- With the RIG open the right grip no longer re-opens it; grip and trigger on
+  the panel go to the inventory only.
+
+**Calibrate game**
+- The T-pose step runs only with Arm coverage "Full body (IK, beta)".
+- New step: ammo clip position at the hip (when manual reload is on).
+- Height calibration no longer locks your view height. The game keeps its
+  automatic eye height and uses your measured height as a reference. If you
+  calibrated with an older version, run Calibrate game again or set Eye height
+  back to Automatic.
+
+**Full body (IK, beta)**
+- The chest faces forward when you stand still, and the body no longer jumps
+  when you start or stop walking.
+- The helmet sits higher and a little further back. To adjust it yourself:
+  **Hands and weapons → Arm coverage** (set to Full body), press A.
+- The legs move in the straitjacket section.
+
+**Movement**
+- Teleport (beta) goes to the farthest spot you can reach instead of showing
+  a red path.
+- Straitjacket section: teleport works and its path is drawn; stick walking
+  has no stock movement inertia.
+- Vents: the helmet collides with walls and ceiling.
+
+**Other**
+- Shake off / break free: the prompt shows the controllers with up/down
+  arrows.
+- Video messages appear further left.
+- VR Settings: "Telekinesis, stasis, stomp" and "RIG and store" are one page,
+  **Abilities, RIG and store**.
+
+Updating from 0.2.x keeps your `ds2stereo.ini`: stomp and the weapon hologram
+stay off there. Turn stomp on in VR Settings; for the hologram set
+`thumbrest_weapon_select=native` in `ds2stereo.ini`.
+
 ### New in 0.2.2
 
-- **Fast RIG actions** (VR Settings → Telekinesis, stasis, stomp; both off by
+- **Fast RIG actions** (VR Settings → Telekinesis, stasis, stomp, since 0.3.0 Abilities, RIG and store; both off by
   default). **RIG weapons: trigger equips, grip moves:** in the RIG, pull the
   trigger on a weapon to take it in your hand, or squeeze the grip to start
   moving it, with no Equip / Move menu. **RIG items: trigger uses, grip
@@ -314,7 +387,7 @@ many cores, for example Intel 12th–14th gen.
   opens on the desktop, not in the headset. Since 0.1.13 the mod answers it
   for you.
 - **Heavy full-screen blur or depth-of-field lines** (final boss): turn them
-  off in **VR Settings → Turning and comfort → Gameplay blur**.
+  off in **VR Settings → Display and comfort → Gameplay blur**.
 - **Low frame rate or stutter in big rooms:** pick a lower resolution in the
   game's video settings (sizes above about 4500 wide stutter on many PCs). If
   it is still slow, play for a minute where it is slow, then send us the log
@@ -329,7 +402,7 @@ many cores, for example Intel 12th–14th gen.
   those sticks click when pushed hard. Since 0.1.7 a both-stick click with a
   stick pushed is not a pause. If it still happens, send the log.
 - **Dark ring at the edge of the view while moving:** that is the comfort
-  vignette. Turn it off in **VR Settings → Turning and comfort → Movement
+  vignette. Turn it off in **VR Settings → Movement and turning → Movement
   vignette**.
 - **Zero-G: the right trigger does not take off** (since 0.2.0 it is the right
   trigger with the right grip open, not both triggers): first check `station_vr=1` in
